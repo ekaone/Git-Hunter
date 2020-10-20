@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex } from "@chakra-ui/core";
+import { Box, Flex, SimpleGrid } from "@chakra-ui/core";
 import PageHeader from "./components/page-header";
 import GroupTitle from "./components/group-title";
 import Filters from "./components/filters";
@@ -16,9 +16,13 @@ export default function Feed() {
           <Filters />
         </Flex>
 
-        <Box>
+        <SimpleGrid columns={1} spacing={2}>
           <Repo />
-        </Box>
+          <Repo />
+          <Repo />
+          <Repo />
+          <Repo />
+        </SimpleGrid>
       </Box>
     </>
   );

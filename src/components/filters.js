@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Flex,
   Select,
@@ -14,6 +14,8 @@ import { FaTable, FaList } from "react-icons/fa";
 import languages from "../data/languages";
 
 export default function Filters() {
+  const [viewType, setViewType] = useState("grid");
+
   return (
     <>
       <Stack isInline>
@@ -58,19 +60,21 @@ export default function Filters() {
         >
           <Button
             h="100%"
-            bg="white"
+            bg={viewType === "grid" ? "gray.200" : "white"}
             fontWeight={400}
             roundedRight={0}
             leftIcon={FaTable}
+            onClick={() => setViewType("grid")}
           >
             Grid
           </Button>
           <Button
             h="100%"
-            bg="white"
+            bg={viewType === "list" ? "gray.200" : "white"}
             fontWeight={400}
             roundedLeft={0}
             leftIcon={FaList}
+            onClick={() => setViewType("list")}
           >
             List
           </Button>

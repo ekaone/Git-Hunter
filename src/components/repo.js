@@ -74,7 +74,7 @@ export default function Repo() {
           <Button
             as="a"
             cursor="pointer"
-            leftIcon={GoStar}
+            leftIcon={GoIssueOpened}
             fontSize="14px"
             variant="link"
             iconSpacing="4px"
