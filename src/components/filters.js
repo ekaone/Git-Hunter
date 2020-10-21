@@ -16,7 +16,13 @@ import languages from "../data/languages";
 export default function Filters(props) {
   // const [viewType, setViewType] = useState("grid");
 
-  const { viewType, handlerViewType, language, handlerChangeLanguage } = props;
+  const {
+    viewType,
+    handlerViewType,
+    language,
+    handlerChangeLanguage,
+    handlerDateChange
+  } = props;
 
   return (
     <>
@@ -44,10 +50,16 @@ export default function Filters(props) {
             Actions
           </MenuButton>
           <MenuList>
-            <MenuItem>Daily</MenuItem>
-            <MenuItem>Weekly</MenuItem>
-            <MenuItem>Monthly</MenuItem>
-            <MenuItem>Yearly</MenuItem>
+            <MenuItem onClick={() => handlerDateChange("day")}>Daily</MenuItem>
+            <MenuItem onClick={() => handlerDateChange("week")}>
+              Weekly
+            </MenuItem>
+            <MenuItem onClick={() => handlerDateChange("month")}>
+              Monthly
+            </MenuItem>
+            <MenuItem onClick={() => handlerDateChange("year")}>
+              Yearly
+            </MenuItem>
           </MenuList>
         </Menu>
 

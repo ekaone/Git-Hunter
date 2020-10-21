@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import moment from "moment";
 import { Box, Flex, SimpleGrid, Text } from "@chakra-ui/core";
 import PageHeader from "./components/page-header";
 import GroupTitle from "./components/group-title";
@@ -8,6 +9,13 @@ import Repo from "./components/repo";
 export default function Feed() {
   const [viewType, setViewType] = useState("grid");
   const [language, setLanguage] = useState();
+  const [dateJump, setDateJump] = useState("day");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState(
+    moment()
+      .subtract(1, "day")
+      .format()
+  );
 
   return (
     <>
@@ -21,10 +29,13 @@ export default function Feed() {
             handlerViewType={setViewType}
             language={language}
             handlerChangeLanguage={setLanguage}
+            handlerDateChange={setDateJump}
           />
         </Flex>
         <Box>
-          <Text>{language}</Text>
+          <Text>
+            {language} &middot; {dateJump} &middot; {endDate}
+          </Text>
         </Box>
         <SimpleGrid columns={viewType === "grid" ? 3 : 1} spacing={2}>
           <Repo />
