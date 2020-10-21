@@ -16,12 +16,15 @@ import languages from "../data/languages";
 export default function Filters(props) {
   // const [viewType, setViewType] = useState("grid");
 
-  const { viewType, handlerViewType } = props;
+  const { viewType, handlerViewType, language, handlerChangeLanguage } = props;
 
   return (
     <>
       <Stack isInline>
-        <Select>
+        <Select
+          value={language}
+          onChange={e => handlerChangeLanguage(e.target.value)}
+        >
           {languages.map(language => (
             <option key={language.value} value={language.value}>
               {language.label}
@@ -41,13 +44,10 @@ export default function Filters(props) {
             Actions
           </MenuButton>
           <MenuList>
-            <MenuItem>Download</MenuItem>
-            <MenuItem>Create a Copy</MenuItem>
-            <MenuItem>Mark as Draft</MenuItem>
-            <MenuItem>Delete</MenuItem>
-            <MenuItem as="a" href="#">
-              Attend a Workshop
-            </MenuItem>
+            <MenuItem>Daily</MenuItem>
+            <MenuItem>Weekly</MenuItem>
+            <MenuItem>Monthly</MenuItem>
+            <MenuItem>Yearly</MenuItem>
           </MenuList>
         </Menu>
 
