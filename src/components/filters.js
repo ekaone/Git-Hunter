@@ -13,8 +13,10 @@ import { FaTable, FaList } from "react-icons/fa";
 
 import languages from "../data/languages";
 
-export default function Filters() {
-  const [viewType, setViewType] = useState("grid");
+export default function Filters(props) {
+  // const [viewType, setViewType] = useState("grid");
+
+  const { viewType, handlerViewType } = props;
 
   return (
     <>
@@ -64,7 +66,9 @@ export default function Filters() {
             fontWeight={400}
             roundedRight={0}
             leftIcon={FaTable}
-            onClick={() => setViewType("grid")}
+            _focus={{ outline: "none !important" }}
+            // onClick={() => setViewType("grid")}
+            onClick={() => handlerViewType("grid")}
           >
             Grid
           </Button>
@@ -74,7 +78,9 @@ export default function Filters() {
             fontWeight={400}
             roundedLeft={0}
             leftIcon={FaList}
-            onClick={() => setViewType("list")}
+            _focus={{ outline: "none !important" }}
+            // onClick={() => setViewType("list")}
+            onClick={() => handlerViewType("list")}
           >
             List
           </Button>
